@@ -8,6 +8,6 @@ def random_price():
 
 def make_recommendation(price):
     if price > 1000:
-        return "this is good, you should sell"
+        return "this is good, you should sell...but it's up to you"
     else:
         return "this is bad, don't sell"
