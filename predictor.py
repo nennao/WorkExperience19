@@ -2,7 +2,7 @@ from random import random
 
 
 def random_price():
-    unrounded = random() * 10
+    unrounded = random() * 1000
     return round(unrounded, 2)
 
 
