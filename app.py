@@ -27,6 +27,11 @@ def stocks():
 def energy():
     return render_template('energy.html')
 
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+
 
 
 
