@@ -5,6 +5,11 @@ body {
     min-height: 100vh;
 }
 
+nav {
+    background: #f7f7f7;
+    colour: #1765b3;
+}
+
 main {
     flex: 1;
     padding: 20px;
@@ -14,6 +19,20 @@ footer {
     color: #ccc;
     display: flex;
     justify-content: center;
-    background-color: #666;
+    background-color: #f8f9fa00;
     padding: 20px;
+}
+
+#welcome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
 }
