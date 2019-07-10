@@ -23,6 +23,17 @@ def signup():
 def stocks():
     return render_template('stocks.html')
 
+@app.route('/energy')
+def energy():
+    return render_template('energy.html')
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+
+
+
 
 if __name__ == '__main__':
     app.run()
