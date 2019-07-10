@@ -4,7 +4,7 @@ from predictor import random_price, make_recommendation
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/home')
 def home():
     my_price = random_price()
     recommendation = make_recommendation(my_price)

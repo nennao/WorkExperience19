@@ -39,3 +39,18 @@ footer {
     align-items: center;
     font-size: 60px;
 }
+
+main h1 {
+    color: #244575;
+    font-weight: 300;
+}
+
+main h2 {
+    color: #b38821;
+    font-weight: 300;
+}
+
+main h3 {
+    color: #212529;
+    font-weight: 300;
+}
