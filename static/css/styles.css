@@ -95,7 +95,7 @@ main h4 {
     align-items: center;
 }
 
-#LoginButton {
+#LoginButton, .list-group-item.active {
   background-color: #244575;
   border-color: #244575;
 }
