@@ -40,17 +40,17 @@ footer {
     font-size: 60px;
 }
 
-#helpSection h1 {
+main h1 {
     color: #244575;
     font-weight: 300;
 }
 
-#helpSection h2 {
+main h2 {
     color: #b38821;
     font-weight: 300;
 }
 
-#helpSection h3 {
+main h3 {
     color: #212529;
     font-weight: 300;
 }
