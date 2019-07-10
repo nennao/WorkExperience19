@@ -1,4 +1,4 @@
-$('#welcome').fadeOut(3000);
+$('#welcome').fadeOut(4000);
 
 setInterval(function(){
     getPrices()

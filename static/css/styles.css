@@ -22,7 +22,7 @@ footer {
     color: #ccc;
     display: flex;
     justify-content: center;
-    background-color: #f8f9fa;
+    background-color: #f7f7f7;
     padding: 20px;
 }
 
@@ -58,6 +58,7 @@ footer a {
     justify-content: center;
     align-items: center;
     font-size: 60px;
+    font-family: Garamond, serif;
 }
 
 main h1 {
@@ -65,12 +66,36 @@ main h1 {
     font-weight: 300;
 }
 
-main h2 {
+main h2, #accordionExample .btn-link {
     color: #b38821;
     font-weight: 300;
+    font-size: 1.2rem;
 }
 
 main h3 {
     color: #212529;
     font-weight: 300;
+    font-size: 0.9rem;
+}
+
+main h4 {
+    color: #212529;
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 17%;
+
+}
+
+#comingsoon {
+    background-image: url("https://cdn.pixabay.com/photo/2015/09/07/08/22/under-928246_960_720.jpg");peat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#LoginButton {
+  background-color: #244575;
+  border-color: #244575;
 }

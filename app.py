@@ -4,7 +4,7 @@ from predictor import random_price, make_recommendation
 app = Flask(__name__)
 
 
-@app.route('/home')
+@app.route('/')
 def home():
     my_price = random_price()
     recommendation = make_recommendation(my_price)
@@ -31,9 +31,13 @@ def energy():
 def help():
     return render_template('help.html')
 
+@app.route('/comingsoon')
+def coming_soon():
+    return render_template('comingsoon.html', notReady=True)
+
 
 
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
