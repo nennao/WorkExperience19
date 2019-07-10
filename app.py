@@ -15,6 +15,10 @@ def home():
 def login():
     return render_template('Login.html')
 
+@app.route('/signup')
+def signup():
+    return render_template('Signup.html')
+
 @app.route('/stocks')
 def stocks():
     return render_template('stocks.html')
