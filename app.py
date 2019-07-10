@@ -11,5 +11,14 @@ def home():
     return render_template('home.html', price=my_price, rec=recommendation)
 
 
+@app.route('/login')
+def login():
+    return render_template('Login.html')
+
+@app.route('/stocks')
+def stocks():
+    return render_template('stocks.html')
+
+
 if __name__ == '__main__':
     app.run()
