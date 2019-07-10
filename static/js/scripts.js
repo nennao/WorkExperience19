@@ -1,3 +1,3 @@
 setInterval(function(){
     getPrices()
-}, 3000);
+}, 5000);
