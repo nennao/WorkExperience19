@@ -17,7 +17,8 @@
 </head>
 
 <body>
-    <!-- ==== NAV BAR (BOOTSTRAP) ===== -->
+
+        <!-- ==== NAV BAR (BOOTSTRAP) ===== -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="{{ url_for('home') }}">Stock Minder</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
@@ -29,28 +30,33 @@
             <a class="nav-link" href="{{ url_for('home') }}">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Help</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Stocks</a>
+            <a class="nav-link" href="{{ url_for('stocks') }}">Stocks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
           </li>
         </ul>
-        <span class="navbar-text">
-          Hello user
-        </span>
       </div>
     </nav>
     <!-- ==== END NAV BAR ===== -->
-    <div/>
     <main>
-        <!-- other html pages can now extend this template -->
         {% block content %}
         {% endblock %}
+    <div class="container">
+        <div class="row">
+    <div class="col-4">
+      1 of 3
+    </div>
+    <div class="col-6">
+      <p>this is our about page....dkbdkbd dkbdkbd dkbdkbd dkbdkbd</p>
+    </div>
+  </div>
+</div>
     </main>
 
-    <footer>
-        <div>© 2019</div>
-    </footer>
 
     <!-- javascript links needed for some Bootstrap components -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
