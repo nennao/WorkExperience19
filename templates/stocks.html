@@ -4,10 +4,30 @@
     <!-- "container" is a bootstrap class for centering content using left and right margins -->
 
     <div class="container">
-        <h1>Welcome to Stock Minder!!</h1>
-        <h2>your price is: {{ price }}</h2>
-        <h2>we recommend: {{ rec }}</h2>
-        <h3>Thank you for using Stock Minder!</h3>
+    <h1>My Stocks</h1>
+    <h3>login to see your stocks</h3>
+    <div class="nav-item">
+        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+
+        {#this is code for the Energy.html#}
+    <div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">Duke Energy</a>
+                <a href="#" class="list-group-item list-group-item-action">BP</a>
+                <a href="#" class="list-group-item list-group-item-action">Active Energy Group</a>
+                <a href="#" class="list-group-item list-group-item-action">Enquest</a>
+                <a href="#" class="list-group-item list-group-item-action">Total S.A.</a>
+                <a href="#" class="list-group-item list-group-item-action">Exxon Mobil Corperation</a>
+                <a href="#" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">Shell</a>
+
+            </div>
+        </div>
+    </div>
+                {#        <h2>your price is: {{ price }}</h2>#}
+        {#        <h2>we recommend: {{ rec }}</h2>#}
+        {#        <h3>Thank you for using Stock Minder!</h3>#}
     </div>
 
 {% endblock %}
