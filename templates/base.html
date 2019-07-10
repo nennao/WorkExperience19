@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Stock Minder</title>
-
-    <!-- Bootstrap and FontAwesome links for css -->
+{#    <!-- Bootstrap and FontAwesome links for css -->#}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -22,7 +21,11 @@
 
 <!-- ==== NAV BAR (BOOTSTRAP) ===== -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="{{ url_for('home') }}">Stock Minder</a>
+
+
+    <a class="navbar-brand" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/StockMinder.jpg') }}" class="rounded float-left" alt="logo" height="40">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
         <span class="navbar-toggler-icon"></span>
     </button>
