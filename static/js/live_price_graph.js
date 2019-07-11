@@ -1,6 +1,9 @@
 const livePriceGraph = dc.compositeChart("#price_graph");
 const livePrices = {};
 const livePricesDataXF = crossfilter();
+const LPMaximumTicks = 200;
+const LPWidth = 800;
+const LPHeight = 560;
 
 
 function makeGraphs() {
@@ -28,19 +31,18 @@ function makeGraphs() {
     }
 
     livePriceGraph
-        .width(1200)
-        .height(560)
-        .x(d3.scaleLinear().domain([0,300]))
-        .y(d3.scaleLinear().domain([3,6]))
+        .width(LPWidth)
+        .height(LPHeight)
+        .x(d3.scaleLinear().domain([0,LPMaximumTicks]))
+        .y(d3.scaleLinear().domain([2,6]))
         .yAxisLabel("Price")
-        .legend(dc.legend().x(1000).y(20).itemHeight(13).gap(5))
+        .legend(dc.legend().x((LPWidth-150)).y(20).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
         .compose(charts)
         .brushOn(false)
         .render();
 
-    livePriceGraph.xAxis().tickFormat(function() { return ""; });
-    // livePriceGraph.xAxis().tick(0);
+    livePriceGraph.xAxis().ticks(0);
     livePriceGraph.render();
 }
 
@@ -51,7 +53,7 @@ function updateLivePriceGraph(prices) {
     for (let stock in prices) {
         if (stock in livePrices) {
             livePrices[stock].push(prices[stock]);
-            if (livePrices[stock].length > 250) livePrices[stock].shift();
+            if (livePrices[stock].length > (LPMaximumTicks - 20)) livePrices[stock].shift();
         } else livePrices[stock] = [prices[stock]];
     }
     const stocks = Object.keys(livePrices);
@@ -71,3 +73,8 @@ function updateLivePriceGraph(prices) {
     if (create) makeGraphs();
     livePriceGraph.redraw();
 }
+
+
+setInterval(function () {
+    getPrices(updateLivePriceGraph);
+}, 1000);
