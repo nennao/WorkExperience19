@@ -12,6 +12,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.0/dc.min.css" integrity="sha256-JxxmFZJjSBxxAjCludgb7ZMDLq9++jCr5pSVyoQLo2s=" crossorigin="anonymous" />
 
     <!-- our custom styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
@@ -95,10 +96,17 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-<script src="{{ url_for('static', filename='js/requests.js') }}"></script>
+<!-- javascript libraries for graphs -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js" integrity="sha256-T9tvV3x+/vCnCoFciKNZwbaJ46q9lh6iZjD0ZjD95lE=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.0/dc.min.js" integrity="sha256-VkdmxdoFc2+pqD2YT0uCKNOktasFgMK79x2vmOIaXtY=" crossorigin="anonymous"></script>
 
 <!-- our custom javascript -->
+<script src="{{ url_for('static', filename='js/requests.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/graphs_assist.js') }}"></script>
+
+
 
 </body>
 </html>
