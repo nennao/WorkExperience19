@@ -46,9 +46,9 @@ function makeGraphs() {
 }
 
 
-setInterval(function () {
-    getPrices(updateLivePriceGraph)
-}, 2000);
+// setInterval(function () {
+//     getPrices(updateLivePriceGraph)
+// }, 2000);
 
 
 function updateLivePriceGraph(prices0) {
