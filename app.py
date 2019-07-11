@@ -106,12 +106,22 @@ def coming_soon():
     return render_template('comingsoon.html', notReady=True)
 
 
+def update_data(prices):
+    for stock, price in prices.items():
+        if stock in DATA:
+            DATA[stock].append(price)
+            if len(DATA[stock]) > 180:  # this data limit ideally should match the limit in the front end
+                DATA[stock].pop(0)
+        else:
+            DATA[stock] = [price]
+
+
 @app.route('/getPrediction', methods=['POST'])
 def make_prediction():
-    print('here')
+    # print('here')
     prices = request.get_json()
     update_data(prices)
-    print(prices, DATA)
+    # print(prices, DATA)
     predictions = get_prediction(prices, DATA)
     return jsonify(render_template('predictions.html', predictions=predictions))
 
@@ -123,11 +133,3 @@ if __name__ == '__main__':
 # ================================= #
 
 
-def update_data(prices):
-    for stock, price in prices.items():
-        if stock in DATA:
-            DATA[stock].append(price)
-            if len(DATA[stock]) > 180:  # this data limit ideally should match the limit in the front end
-                DATA[stock].pop(0)
-        else:
-            DATA[stock] = [price]
