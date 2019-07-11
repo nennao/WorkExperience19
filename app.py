@@ -106,23 +106,6 @@ def coming_soon():
     return render_template('comingsoon.html', notReady=True)
 
 
-@app.route('/getPrediction', methods=['POST'])
-def make_prediction():
-    print('here')
-    prices = request.get_json()
-    update_data(prices)
-    print(prices, DATA)
-    predictions = get_prediction(prices, DATA)
-    return jsonify(render_template('predictions.html', predictions=predictions))
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-# ================================= #
-
-
 def update_data(prices):
     for stock, price in prices.items():
         if stock in DATA:
@@ -131,3 +114,15 @@ def update_data(prices):
                 DATA[stock].pop(0)
         else:
             DATA[stock] = [price]
+
+
+@app.route('/getPrediction', methods=['POST'])
+def make_prediction():
+    prices = request.get_json()
+    update_data(prices)
+    predictions = get_prediction(prices, DATA)
+    return jsonify(render_template('predictions.html', predictions=predictions))
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

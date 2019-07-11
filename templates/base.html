@@ -107,8 +107,9 @@
 <!-- our custom javascript -->
 <script src="{{ url_for('static', filename='js/requests.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-<script src="{{ url_for('static', filename='js/live_price_graph.js') }}"></script>
 
+{% block graph_js %}
+{% endblock %}
 
 
 </body>

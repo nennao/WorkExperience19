@@ -6,7 +6,7 @@ const LPWidth = 800;
 const LPHeight = 560;
 
 
-function makeGraphs() {
+function makeLPGraphs() {
 
     const styling = {
         StockA: {color: 'red', dash: [2,2]},
@@ -70,7 +70,7 @@ function updateLivePriceGraph(prices) {
         });
         livePricesDataXF.add(data);
     }
-    if (create) makeGraphs();
+    if (create) makeLPGraphs();
     livePriceGraph.redraw();
 }
 
