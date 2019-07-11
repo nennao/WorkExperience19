@@ -7,7 +7,7 @@ function getPrices(callback=function(){}){
         return response.json()
     })
     .then(function(myJson) {
-        console.log(myJson);
+//        console.log(myJson);
         callback(myJson)
     })
     .catch(function(error) {
@@ -96,5 +96,23 @@ function sell(accountId, stock, amount, callback=function(){}){
     })
     .catch(function(error) {
         console.error("error occurred in sell:", error);
+    });
+}
+
+function postPrice(priceJson, callback=function(){}){
+    price = priceJson['StockA'];
+    console.log(priceJson, price);
+    fetch(`/getPrediction?prices=${price}`, {method: 'POST'})
+    .then(function(response) {
+        console.log(response);
+        return response.json()
+    })
+    .then(function(myJson) {
+        console.log(myJson);
+        $('#predictionBox').html(myJson);
+        callback(myJson)
+    })
+    .catch(function(error) {
+        console.error("error occurred in postPrice:", error);
     });
 }

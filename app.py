@@ -1,7 +1,9 @@
-from flask import Flask, render_template
-from predictor import random_price, make_recommendation
+from flask import Flask, request, jsonify, render_template
+from predictor import random_price, make_recommendation, get_prediction
 
 app = Flask(__name__)
+
+DATA = []
 
 
 @app.route('/')
@@ -87,6 +89,15 @@ def china_info():
 def coming_soon():
     return render_template('comingsoon.html', notReady=True)
 
+
+@app.route('/getPrediction', methods=['POST'])
+def make_prediction():
+    price = request.args['prices']
+    DATA.append(price)  # TODO remember to limit the size fo this list
+    prediction = get_prediction(price, DATA)
+    print(price, '-', prediction)
+    print(DATA)
+    return jsonify(render_template('predictions.html', prediction=prediction))
 
 
 

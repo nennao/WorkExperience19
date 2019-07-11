@@ -14,3 +14,8 @@ def make_recommendation(price):
         return "sell or buy, you decide"
     else:
         return "this is bad, don't sell...although it's all in your hands"
+
+
+def get_prediction(price, all_data):
+    prediction = f'this is the prediction for {price}'
+    return prediction
