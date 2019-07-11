@@ -2,11 +2,11 @@ const livePriceGraph = dc.compositeChart("#price_graph");
 const livePrices = {};
 const livePricesDataXF = crossfilter();
 const LPMaximumTicks = 200;
-const LPWidth = 300;
-const LPHeight = 300;
+const LPWidth = 250;
+const LPHeight = 250;
 
 
-function makeGraphs() {
+function makeLPGraphs() {
 
     const styling = {
         StockA: {color: 'red', dash: [2,2]},
@@ -70,7 +70,7 @@ function updateLivePriceGraph(prices) {
         });
         livePricesDataXF.add(data);
     }
-    if (create) makeGraphs();
+    if (create) makeLPGraphs();
     livePriceGraph.redraw();
 }
 

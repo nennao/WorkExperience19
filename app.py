@@ -118,18 +118,11 @@ def update_data(prices):
 
 @app.route('/getPrediction', methods=['POST'])
 def make_prediction():
-    # print('here')
     prices = request.get_json()
     update_data(prices)
-    # print(prices, DATA)
     predictions = get_prediction(prices, DATA)
     return jsonify(render_template('predictions.html', predictions=predictions))
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-# ================================= #
-
-

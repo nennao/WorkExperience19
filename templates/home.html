@@ -26,19 +26,19 @@
                     <div class="carousel-item active">
                         <img src="https://www.kiplinger.com/slideshow/investing/T052-S001-10-small-cap-growth-stocks-to-buy-now/images/intro.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5> <a class="btn btn-link" id="LoginButton" href="{{ url_for('signup') }}">Start Investing</a> </h5>
+                            <h5> <a class="btn btn-link LoginButton" href="{{ url_for('signup') }}">Start Investing</a> </h5>
                          </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://financialpostcom.files.wordpress.com/2016/10/shell.jpg?quality=80&strip=all&w=780" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5> <a class="btn btn-link" id="LoginButton" href="{{ url_for('signup') }}">Start Investing</a> </h5>
+                            <h5> <a class="btn btn-link LoginButton" href="{{ url_for('signup') }}">Start Investing</a> </h5>
                          </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://www.moneywise.co.uk/sites/default/files/styles/node_main/public/images/articles/open-banking-what-means-web.jpg?itok=kO_z6RRd" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5> <a class="btn btn-link" id="LoginButton" href="{{ url_for('signup') }}">Start Investing</a> </h5>
+                            <h5> <a class="btn btn-link LoginButton" href="{{ url_for('signup') }}">Start Investing</a> </h5>
                          </div>
                     </div>
                 </div>
@@ -54,5 +54,12 @@
         </div>
     </div>
 </div>
+
+{% endblock %}
+
+
+{% block graph_js %}
+
+    <script src="{{ url_for('static', filename='js/live_price_graph.js') }}"></script>
 
 {% endblock %}
