@@ -1,17 +1,17 @@
-const livePriceGraph = dc.compositeChart("#price_chart");
+const livePriceGraph = dc.compositeChart("#price_graph");
 const livePrices = {};
-const ndx = crossfilter();
-
-const styling = {
-    StockA: {color: 'red', dash: [2,2]},
-    StockB: {color: 'blue', dash: [5,5]},
-    defaults: {color: 'black', dash:[1,0]},
-};
+const livePricesDataXF = crossfilter();
 
 
 function makeGraphs() {
 
-    const dim  = ndx.dimension(dc.pluck('tick'));
+    const styling = {
+        StockA: {color: 'red', dash: [2,2]},
+        StockB: {color: 'blue', dash: [5,5]},
+        defaults: {color: 'black', dash:[1,0]},
+    };
+
+    const dim  = livePricesDataXF.dimension(dc.pluck('tick'));
 
     const charts = [];
     for (let stock of Object.keys(livePrices)) {
@@ -37,7 +37,6 @@ function makeGraphs() {
         .renderHorizontalGridLines(true)
         .compose(charts)
         .brushOn(false)
-        .elasticY(true)
         .render();
 
     livePriceGraph.xAxis().tickFormat(function() { return ""; });
@@ -46,18 +45,8 @@ function makeGraphs() {
 }
 
 
-// setInterval(function () {
-//     getPrices(updateLivePriceGraph)
-// }, 2000);
-
-
-function updateLivePriceGraph(prices0) {
+function updateLivePriceGraph(prices) {
     const create = !Object.keys(livePrices).length;
-
-    const prices = prices0;  // TODO remove this after testing
-    prices['StockB'] = +prices['StockA'] + +(0.2 + Math.random() * 0.3).toFixed(3);
-    prices['StockC'] = +prices['StockA'] + +(-0.1 - Math.random() * 0.3).toFixed(3);
-
 
     for (let stock in prices) {
         if (stock in livePrices) {
@@ -67,7 +56,7 @@ function updateLivePriceGraph(prices0) {
     }
     const stocks = Object.keys(livePrices);
 
-    ndx.remove();
+    livePricesDataXF.remove();
 
     for (let stock in livePrices) {
         const data = livePrices[stock].map(function (d, i) {
@@ -77,7 +66,7 @@ function updateLivePriceGraph(prices0) {
             row[stock] = d;
             return row
         });
-        ndx.add(data);
+        livePricesDataXF.add(data);
     }
     if (create) makeGraphs();
     livePriceGraph.redraw();
