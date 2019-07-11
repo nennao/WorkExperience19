@@ -1,4 +1,4 @@
-const livePriceGraph = dc.compositeChart("#"price_graph);
+const livePriceGraph = dc.compositeChart("#price_graph");
 const livePrices = {};
 const livePricesDataXF = crossfilter();
 const LPMaximumTicks = 200;
