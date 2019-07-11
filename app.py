@@ -55,6 +55,30 @@ def shell_info():
 def total_info():
     return render_template('total_info.html')
 
+@app.route('/metals')
+def metals():
+    return render_template('metals.html')
+
+@app.route('/riotinto_info')
+def riotinto_info():
+    return render_template('riotinto_info.html')
+
+@app.route('/bhp_info')
+def bhp_info():
+    return render_template('bhp_info.html')
+
+@app.route('/glencore_info')
+def glencore_info():
+    return render_template('glencore_info.html')
+
+@app.route('/valesa_info')
+def valesa_info():
+    return render_template('valesa_info.html')
+
+@app.route('/china_info')
+def china_info():
+    return render_template('china_info.html')
+
 @app.route('/comingsoon')
 def coming_soon():
     return render_template('comingsoon.html', notReady=True)
