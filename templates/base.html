@@ -58,14 +58,21 @@
             </li>
         </ul>
     </div>
+    {% if session.username %}
+    <div class="nav-item">
+        Hello, {{ session.username }}!
+    </div>
+    <div class="nav-item">
+        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    {% else %}
     <div class="nav-item">
         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
     </div>
     <div class="nav-item">
         <a class="nav-link" href="{{ url_for('signup') }}">Signup</a>
     </div>
-    </ul>
-    </div>
+    {% endif %}
 </nav>
 <!-- ==== END NAV BAR ===== -->
 <main id="{% if notReady %}comingsoon{% endif %}">
