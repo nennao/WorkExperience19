@@ -1,9 +1,11 @@
 import os
+import requests
 from flask import Flask, session, request, jsonify, redirect, url_for, render_template
 from predictor import get_prediction
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY') or os.urandom(16)
+SERVER = "https://tradeserver3000.herokuapp.com"
 
 DATA = {}
 
@@ -17,22 +19,37 @@ def home():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        session['username'] = request.form['username']
-        return redirect(url_for('home'))
+        username = request.form['username']
+        r = requests.get(SERVER + '/position', params={'accountId': username})
+        if r.status_code == 200:
+            session['username'] = username
+            session['balance'] = r.json()['balance']
+            return redirect(url_for('home'))
+        else:
+            return render_template('Login.html', error=r.text)
     return render_template('Login.html')
 
 
 @app.route('/logout')
 def logout():
     session.pop('username', None)
+    session.pop('balance', None)
     return redirect(url_for('home'))
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        session['username'] = request.form['username']
-        return redirect(url_for('home'))
+        username = request.form['username']
+        r = requests.post(SERVER + '/create_account', params={'accountId': username})
+        if r.status_code == 200:
+            session['username'] = username
+            r2 = requests.get(SERVER + '/position', params={'accountId': username})
+            if r2.status_code == 200:
+                session['balance'] = r2.json()['balance']
+            return redirect(url_for('home'))
+        else:
+            return render_template('Signup.html', error=r.text)
     return render_template('Signup.html')
 
 

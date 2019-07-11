@@ -60,7 +60,7 @@
     </div>
     {% if session.username %}
     <div class="nav-item">
-        Hello, {{ session.username }}!
+        Hello, {{ session.username }}! {% if session.balance %}Balance: ${{ session.balance }}{% endif %}
     </div>
     <div class="nav-item">
         <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>

@@ -16,7 +16,7 @@
             <div id="predictionBox">waiting for prediction...</div>
             <a class="btn btn-link LoginButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Start Investing</a>
         </div>
-        <div class="col-7" style="{text-align: center}">
+        <div class="col-7">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
