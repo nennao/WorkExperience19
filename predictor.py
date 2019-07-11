@@ -16,6 +16,8 @@ def make_recommendation(price):
         return "this is bad, don't sell...although it's all in your hands"
 
 
-def get_prediction(price, all_data):
-    prediction = f'this is the prediction for {price}'
-    return prediction
+def get_prediction(prices, all_data):
+    predictions = []
+    for stock, price in prices.items():
+        predictions.append(f'this is the prediction for {stock}: {price}')
+    return predictions

@@ -1,3 +1,5 @@
 <label id="prediction">
-    {{ prediction}}
+    {% for prediction in predictions %}
+        {{ prediction }}
+    {% endfor %}
 </label>

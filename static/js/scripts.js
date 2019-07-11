@@ -1,10 +1,12 @@
 $('#welcome').fadeOut(4000);
 
-//setInterval(function(){
-//    getPrices()
-//}, 5000);
 
+function postPricesWithCallback(priceJson){
+    postPrices(priceJson, function (prediction) {
+        $('#predictionBox').html(prediction);
+    })
+}
 
 setInterval(function(){
-    getPrices(postPrice)
-}, 10000);
+    getPrices(postPricesWithCallback)
+}, 5000);
