@@ -1,4 +1,9 @@
-$('#welcome').fadeOut(4000);
+if ($('#welcome').hasClass('starting')) {
+    $('#welcome').fadeOut(8000);
+}
+else {
+    $('#welcome').fadeOut(2000);
+}
 
 
 function postPricesWithCallback(priceJson){

@@ -10,6 +10,7 @@ DATA = {}
 
 @app.route('/')
 def home():
+    session['state'] = 'started' if session.get('state') else 'starting'
     return render_template('home.html')
 
 

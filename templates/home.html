@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div id="welcome">Welcome to Stock Minder!</div>
+<div id="welcome" class="{% if session.state == 'starting' %}starting{% endif %}">Welcome to Stock Minder!</div>
 
 
 <div class="container-fluid">
