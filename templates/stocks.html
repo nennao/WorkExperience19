@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <!-- "container" is a bootstrap class for centering content using left and right margins -->
+<!-- "container" is a bootstrap class for centering content using left and right margins -->
 
-    <div class="container">
-        <h1>My Stocks</h1>
-        <h3>login to see your stocks</h3>
-        <a class="btn btn-primary LoginButton" href="{{ url_for('login') }}">Login</a>
-        <br>
-        <br>
-    </div>
+<h1>My Stocks</h1>
+<div class="container">
+    <h3>login to see your stocks</h3>
+    <a class="btn btn-primary LoginButton" href="{{ url_for('login') }}">Login</a>
+    <br>
+    <br>
+</div>
 
 {% endblock %}
