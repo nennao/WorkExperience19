@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{#this is code for the metals.html#}
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <h4>Metal Stocks</h4><br>
+
+                <div class="list-group">
+                    <a href="{{ url_for('metals') }}"  class="list-group-item list-group-item-action active">Anglo American (GBX)</a>
+                    <a href="{{ url_for('riotinto_info') }}"  class="list-group-item list-group-item-action">Rio Tinto (GBX)</a>
+                    <a href="{{ url_for('bhp_info') }}" class="list-group-item list-group-item-action">BHP (GBX)</a>
+                    <a href="{{ url_for('glencore_info') }}" class="list-group-item list-group-item-action">Glencore (GBX)</a>
+                    <a href="{{ url_for('valesa_info') }}" class="list-group-item list-group-item-action">Vale SA (GBX)</a>
+                    <a href="{{ url_for('china_info') }}" class="list-group-item list-group-item-action">China Shenhua Energy (GBX)</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <h4>Rio Tinto (GBX)</h4><br>
+                This is where information for the company can be made or anything relating to the company! This is where information for the company can be made or anything relating to the company! This is where information for the company can be made or anything relating to the company! This is where information for the company can be made or anything relating to the company! This is where information for the company can be made or anything relating to the company!
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
