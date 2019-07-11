@@ -2,8 +2,8 @@ const livePriceGraph = dc.compositeChart("#price_graph");
 const livePrices = {};
 const livePricesDataXF = crossfilter();
 const LPMaximumTicks = 200;
-const LPWidth = 800;
-const LPHeight = 560;
+const LPWidth = 250;
+const LPHeight = 250;
 
 
 function makeLPGraphs() {
@@ -36,7 +36,7 @@ function makeLPGraphs() {
         .x(d3.scaleLinear().domain([0,LPMaximumTicks]))
         .y(d3.scaleLinear().domain([2,6]))
         .yAxisLabel("Price")
-        .legend(dc.legend().x((LPWidth-150)).y(20).itemHeight(13).gap(5))
+        .legend(dc.legend().x((LPWidth-130)).y(30).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
         .compose(charts)
         .brushOn(false)

@@ -3,9 +3,18 @@
 
     <div id="welcome">Welcome to Stock Minder!</div>
 
-    <div id="price_graph"></div>
-    <div id="predictionBox">waiting for prediction...</div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="price_graph"></div>
+            </div>
+        </div>
+        <div class="col-9">
+
+            <a class="btn btn-primary" id="LoginButton" href="{{ url_for('signup') }}">Start Investing</a>
+        </div>
+    </div>
 
 
 {% endblock %}
