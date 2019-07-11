@@ -2,8 +2,8 @@ const livePriceGraph = dc.compositeChart("#price_graph");
 const livePrices = {};
 const livePricesDataXF = crossfilter();
 const LPMaximumTicks = 200;
-const LPWidth = 250;
-const LPHeight = 250;
+const LPWidth = 600;
+const LPHeight = 400;
 
 
 function makeLPGraphs() {
