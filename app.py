@@ -1,7 +1,9 @@
-from flask import Flask, request, jsonify, render_template
+import os
+from flask import Flask, session, request, jsonify, redirect, url_for, render_template
 from predictor import get_prediction
 
 app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY') or os.urandom(16)
 
 DATA = {}
 
@@ -11,8 +13,11 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('home'))
     return render_template('Login.html')
 
 
