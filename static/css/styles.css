@@ -5,6 +5,14 @@ body {
     min-height: 100vh;
 }
 
+nav {
+    background: #f7f7f7;
+}
+
+nav a {
+    color: #2f4a78;
+}
+
 main {
     flex: 1;
     padding: 20px;
@@ -14,6 +22,80 @@ footer {
     color: #ccc;
     display: flex;
     justify-content: center;
-    background-color: #666;
+    background-color: #f7f7f7;
     padding: 20px;
+}
+
+footer a {
+  margin: 5px;
+  text-decoration: none!important;
+}
+
+.social-icon {
+  display: inline-flex;  /* allows use of "justify-content" and "align-items" properties */
+  width: 50px;
+  height: 50px;
+  color: #666;
+  background-color: white;
+  justify-content: center;  /* horizontally centers the contents (the FontAwesome icon) */
+  align-items: center;  /* vertically centers the contents (the FontAwesome icon) */
+  border-radius: 50%;  /* makes it round (circle if width and height are the same) */
+}
+
+.social-icon:hover {
+  color: #222;  /* change color when hover over the link */
+}
+
+#welcome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-family: Garamond, serif;
+}
+
+main h1 {
+    color: #244575;
+    font-weight: 300;
+}
+
+main h2, #accordionExample .btn-link {
+    color: #b38821;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+main h3 {
+    color: #212529;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+main h4 {
+    color: #212529;
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 17%;
+
+}
+
+#comingsoon {
+    background-image: url("https://cdn.pixabay.com/photo/2015/09/07/08/22/under-928246_960_720.jpg");peat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#LoginButton, .list-group-item.active {
+  background-color: #244575;
+  border-color: #244575;
 }

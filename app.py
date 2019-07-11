@@ -23,6 +23,45 @@ def signup():
 def stocks():
     return render_template('stocks.html')
 
+@app.route('/energy')
+def energy():
+    return render_template('energy.html')
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+@app.route('/bp_info')
+def bp_info():
+    return render_template('bp_info.html')
+
+@app.route('/active_info')
+def active_info():
+    return render_template('active_info.html')
+
+@app.route('/enquest_info')
+def enquest_info():
+    return render_template('enquest_info.html')
+
+@app.route('/exxon_info')
+def exxon_info():
+    return render_template('exxon_info.html')
+
+@app.route('/shell_info')
+def shell_info():
+    return render_template('shell_info.html')
+
+@app.route('/total_info')
+def total_info():
+    return render_template('total_info.html')
+
+@app.route('/comingsoon')
+def coming_soon():
+    return render_template('comingsoon.html', notReady=True)
+
+
+
+
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
