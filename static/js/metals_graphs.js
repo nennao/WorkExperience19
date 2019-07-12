@@ -1,4 +1,8 @@
-d3.csv("/static/data/metals_data.csv")
+/**
+ * graphs for metals (& and energy!)
+ */
+
+d3.csv(DATA_FILE)
   .then(function(data) {
       data = transformData(data);
       console.log(data);
@@ -14,7 +18,7 @@ function transformData(data){
     const dateFormat = d3.timeParse("%B");
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     for (let d of data){
-        if (d.company !== METALS_NAME) continue;
+        if (d.company !== COMPANY_NAME) continue;
         for (let month of months){
             if (!d[month]) continue;
             let y2018 = d.year === "2018" ? d[month] : 0;
@@ -29,7 +33,7 @@ function transformData(data){
 
 function makeMetalsGraphs(data){
     const dateFormat = d3.timeParse("%B");
-    const metalsGraph = dc.compositeChart(METALS_ID);
+    const metalsGraph = dc.compositeChart(GRAPH_ID);
     const metalsXF = crossfilter();
     const width = 700;
     const height = 360;

@@ -21,7 +21,8 @@
             <div class="col-9">
                 <h5>Active Energy</h5><br>
                 Active Energy Group is a renewable energy company focused on traditional and second generation biomass products that have the potential to transform the traditional coal fired-power industry and develop an international forestry management business.
-            <p></p>
+            <div id="energy_active_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
@@ -29,4 +30,14 @@
     </div>
 
 
+{% endblock %}
+
+
+{% block graph_js %}
+    <script>
+        const DATA_FILE = "/static/data/energy_data.csv";
+        const COMPANY_NAME = 'Active Energy Group (GBX)';
+        const GRAPH_ID = '#energy_active_graph';
+    </script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}

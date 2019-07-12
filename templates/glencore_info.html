@@ -30,6 +30,10 @@
 {% endblock %}
 
 {% block graph_js %}
-    <script>const METALS_NAME = 'Glencore'; const METALS_ID = '#metals_Glencore_graph';</script>
+    <script>
+        const DATA_FILE = "/static/data/metals_data.csv";
+        const COMPANY_NAME = 'Glencore';
+        const GRAPH_ID = '#metals_Glencore_graph';
+    </script>
     <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}

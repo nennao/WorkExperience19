@@ -22,7 +22,8 @@
 
                 <h5>Total Energy</h5><br>
                 Total S.A. is a French multinational integrated oil and gas company founded in 1924 and one of the seven "Supermajor" oil companies in the world. Its businesses cover the entire oil and gas chain, from crude oil and natural gas exploration and production to power generation, transportation, refining, petroleum product marketing, and international crude oil and product trading. Total is also a large scale chemicals manufacturer.
-            <p></p>
+            <div id="energy_tot_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
@@ -30,4 +31,13 @@
     </div>
 
 
+{% endblock %}
+
+{% block graph_js %}
+    <script>
+        const DATA_FILE = "/static/data/energy_data.csv";
+        const COMPANY_NAME = 'Total S.A (GBX)';
+        const GRAPH_ID = '#energy_tot_graph';
+    </script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}

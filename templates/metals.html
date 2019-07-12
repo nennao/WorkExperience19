@@ -31,6 +31,10 @@
 
 
 {% block graph_js %}
-    <script>const METALS_NAME = 'Anglo American'; const METALS_ID = '#metals_aa_graph';</script>
+    <script>
+        const DATA_FILE = "/static/data/metals_data.csv";
+        const COMPANY_NAME = 'Anglo American';
+        const GRAPH_ID = '#metals_aa_graph';
+    </script>
     <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}
