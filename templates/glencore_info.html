@@ -19,11 +19,17 @@
             <div class="col-9">
                 <h5>Glencore (GBX)</h5><br>
                 Glencore plc is a British–Swiss multinational commodity trading and mining company.As Glencore International, the company was already one of the world's leading integrated producers and marketers of commodities. It was the largest company in Switzerland and the world's largest commodities trading company, with a 2010 global market share of 60% in internationally tradable zinc.They currently operate in more than 50 countries.
-            <p></p>
+            <div id="metals_Glencore_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block graph_js %}
+    <script>const METALS_NAME = 'Glencore'; const METALS_ID = '#metals_Glencore_graph';</script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}
