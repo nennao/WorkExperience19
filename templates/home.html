@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-5">
             <div id="price_graph"></div>
-            <p>This is a live update for blah blah blah.....</p>
+            <p>This is a live update for Stock A and Stock B.</p>
             <div id="predictionBox">waiting for prediction...</div>
             <a class="btn btn-link LoginButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Start Investing</a>
         </div>
