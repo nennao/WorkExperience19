@@ -21,7 +21,8 @@
             <div class="col-9">
                 <h5>Shell Energy</h5><br>
                 Shell has played a vital role in powering the UK’s industry, transport systems and homes since the founding of Shell Transport and Trading over 120 years ago.
-            <p></p>
+                <div id="energy_shell_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
@@ -29,4 +30,14 @@
     </div>
 
 
+{% endblock %}
+
+
+{% block graph_js %}
+    <script>
+        const DATA_FILE = "/static/data/energy_data.csv";
+        const COMPANY_NAME = 'Shell (GBX)';
+        const GRAPH_ID = '#energy_shell_graph';
+    </script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}
