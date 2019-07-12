@@ -1,8 +1,8 @@
 if ($('#welcome').hasClass('starting')) {
-    $('#welcome').fadeOut(500);
+    $('#welcome').fadeOut(8000);
 }
 else {
-    $('#welcome').fadeOut(500);
+    $('#welcome').fadeOut(2000);
 }
 
 
