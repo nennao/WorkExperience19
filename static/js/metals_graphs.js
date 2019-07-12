@@ -63,6 +63,7 @@ function makeMetalsGraphs(data){
         .renderHorizontalGridLines(true)
         .compose(charts)
         .brushOn(false)
+        .elasticY(true)
         .render();
 
     metalsGraph.xAxis().tickFormat(d3.timeFormat("%b"));
