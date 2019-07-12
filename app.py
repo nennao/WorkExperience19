@@ -149,6 +149,10 @@ def valesa_info():
 def china_info():
     return render_template('china_info.html')
 
+@app.route('/wtlof')
+def wtlof():
+    return render_template('wtlof.html')
+
 
 @app.route('/comingsoon')
 def coming_soon():

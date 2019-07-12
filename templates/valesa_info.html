@@ -19,11 +19,17 @@
             <div class="col-9">
                 <h5>Vale SA (GBX)</h5><br>
                 Vale S.A. is a Brazilian multinational corporation engaged in metals and mining.is the largest producer of iron ore and nickel in the world. Vale also produces manganese, ferroalloys, copper, bauxite, potash, kaolin, and cobalt, currently operating nine hydroelectricity plants, and a large network of railroads, ships, and ports used to transport its products.
-            <p></p>
+            <div id="metals_Vale_SA_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block graph_js %}
+    <script>const METALS_NAME = 'Vale SA'; const METALS_ID = '#metals_Vale_SA_graph';</script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}

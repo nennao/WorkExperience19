@@ -19,11 +19,17 @@
             <div class="col-9">
                 <h5>China Shenhua Energy (GBX)</h5><br>
                 China Shenhua Energy Company is the largest coal mining state-owned enterprise in Mainland China, and the largest coal mining enterprise in the world. It is engaged in the production and sale of coal and the generation and sale of electric power in the PRC. It operates coal mines as well as an integrated railway network and a seaport that are primarily used to transport its coal.
-            <p></p>
+            <div id="metals_China_SE_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block graph_js %}
+    <script>const METALS_NAME = 'China SE'; const METALS_ID = '#metals_China_SE_graph';</script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}

@@ -19,6 +19,7 @@
             <div class="col-9">
                 <h5>Rio Tinto (GBX)</h5><br>
                 Rio Tinto is an Anglo-Australian multinational and one of the world's largest metals and mining corporations. The company was founded in 1873, since then, the company has grown through a long series of mergers and acquisitions to place itself among the world leaders in the production of many commodities, including aluminium, iron ore, copper, uranium, and diamonds.
+                <div id="metals_rio_graph"></div>
             <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
@@ -27,4 +28,10 @@
     </div>
 
 
+{% endblock %}
+
+
+{% block graph_js %}
+    <script>const METALS_NAME = 'Rio Tinto'; const METALS_ID = '#metals_rio_graph';</script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}
