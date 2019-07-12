@@ -1,8 +1,8 @@
 if ($('#welcome').hasClass('starting')) {
-    $('#welcome').fadeOut(8000);
+    $('#welcome').fadeOut(500);
 }
 else {
-    $('#welcome').fadeOut(2000);
+    $('#welcome').fadeOut(500);
 }
 
 
@@ -15,3 +15,6 @@ function postPricesWithCallback(priceJson){
 setInterval(function(){
     getPrices(postPricesWithCallback)
 }, 5000);
+
+
+/* ====== BUY & SELL ====== */

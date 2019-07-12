@@ -116,3 +116,17 @@ function postPrices(priceJson, callback=function(){}){
         console.error("error occurred in postPrice:", error);
     });
 }
+
+function updateBalance(balance, callback=function(){}){
+    fetch(`/update_balance?balance=${balance}`, {method: 'POST'})
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function(myJson) {
+        console.log(myJson);
+        callback(myJson)
+    })
+    .catch(function(error) {
+        console.error("error occurred in postPrice:", error);
+    });
+}
