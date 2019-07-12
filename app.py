@@ -53,6 +53,17 @@ def signup():
     return render_template('Signup.html')
 
 
+@app.route('/buy', methods=['POST'])
+def buy():
+    amount = request.form['amount']
+    r = requests.post(SERVER + '/buy', params={'accountId': session['username'], 'amount': amount, 'stock': 'StockA'})
+    if r.status_code == 200:
+        print('successful')
+    else:
+        print(r.text)
+
+
+
 @app.route('/stocks')
 def stocks():
     return render_template('stocks.html')

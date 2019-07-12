@@ -6,7 +6,35 @@
 <h1>My Stocks</h1>
 <div class="container">
     {% if session.username %}
-        <p>coming soon...</p>
+
+    <div class="row">
+        <div class="col-6">
+            <div id="price_graph"></div>
+        </div>
+        <div class="col-6">
+
+            Hello, {{ session.username }}! , your balance is:
+            <p>Balance: ${{ session.balance }}</p>
+
+
+            <form action="{{ url_for('buy') }}" method="post">
+                <div class="form-group">
+
+                    <label for="exampleAmount1">StockA</label>
+                    <input type="number" class="form-control" id="exampleAmount1"
+                           name="amount">
+
+                </div>
+                <input type="submit" class="btn btn-primary LoginButton" value="Buy">
+                {% if error %}
+                    <div style="color: red">ERROR: {{ error }}</div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+
+
     {% else %}
         <h3>login to see your stocks</h3>
         <a class="btn btn-primary LoginButton" href="{{ url_for('login') }}">Login</a>
@@ -14,5 +42,12 @@
     <br>
     <br>
 </div>
+
+{% endblock %}
+
+
+{% block graph_js %}
+
+    <script src="{{ url_for('static', filename='js/live_price_graph.js') }}"></script>
 
 {% endblock %}
