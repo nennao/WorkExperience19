@@ -18,7 +18,7 @@
 
             {% for stock in stocks %}
                 <div class="form-group">
-                    <input type="text" class="form-control" id="{{ stock }}_stock" name="stock" value="{{ stock }}" disabled>
+                    <input type="text" class="form-control" id="{{ stock }}_stock" name="stock" value="{{ stock }}: loading..." disabled>
                     <input type="number" class="form-control" id="{{ stock }}_amount" name="amount" placeholder="amount" min="1">
                     <button class="btn btn-primary LoginButton" id="{{ stock }}_buy">Buy</button>
                     <button class="btn btn-primary LoginButton" id="{{ stock }}_sell">Sell</button>
@@ -46,6 +46,12 @@
 <script src="{{ url_for('static', filename='js/live_price_graph.js') }}"></script>
 
 <script>
+    {% for stock in stocks %}
+        {% if session.username %}
+            getPosition('{{ session.username }}', function(myJson){$('#{{ stock }}_stock')[0].value = '{{ stock }}: '+(myJson.stock['{{ stock }}']); console.log('done', myJson.stock['{{ stock }}'])});
+        {% endif %}
+    {% endfor %}
+
     const funcMap = {
         'buy': buy,
         'sell': sell,
@@ -60,7 +66,9 @@
                         alert(amount + ' x {{ stock }}: ' + msg);
                         getPosition('{{ session.username }}', function(myJson){
                             let balance = myJson['balance'];
+                            let stocks = myJson.stock['{{ stock }}'];
                             $('#userBalance').html(balance);
+                            $('#{{ stock }}_stock')[0].value = '{{ stock }}: '+stocks;
                             updateBalance(balance);
                         });
                     }
