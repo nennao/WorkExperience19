@@ -63,10 +63,16 @@ def buy():
         print(r.text)
 
 
+@app.route('/update_balance', methods=['POST'])
+def update_balance():
+    session['balance'] = request.args['balance']
+    return jsonify('balance update successful')
+
 
 @app.route('/stocks')
 def stocks():
-    return render_template('stocks.html')
+    stocks_list = ['StockA', 'StockB']
+    return render_template('stocks.html', stocks=stocks_list)
 
 
 @app.route('/energy')

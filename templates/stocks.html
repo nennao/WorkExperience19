@@ -14,22 +14,17 @@
         <div class="col-6">
 
             Hello, {{ session.username }}! , your balance is:
-            <p>Balance: ${{ session.balance }}</p>
+            <p>Balance: $<span id="userBalance">{{ session.balance }}</span></p>
 
-
-            <form action="{{ url_for('buy') }}" method="post">
+            {% for stock in stocks %}
                 <div class="form-group">
-
-                    <label for="exampleAmount1">StockA</label>
-                    <input type="number" class="form-control" id="exampleAmount1"
-                           name="amount">
-
+                    <input type="text" class="form-control" id="{{ stock }}_stock" name="stock" value="{{ stock }}" disabled>
+                    <input type="number" class="form-control" id="{{ stock }}_amount" name="amount" placeholder="amount" min="1">
+                    <button class="btn btn-primary LoginButton" id="{{ stock }}_buy">Buy</button>
+                    <button class="btn btn-primary LoginButton" id="{{ stock }}_sell">Sell</button>
+                    <div id="{{ stock }}_msg"></div>
                 </div>
-                <input type="submit" class="btn btn-primary LoginButton" value="Buy">
-                {% if error %}
-                    <div style="color: red">ERROR: {{ error }}</div>
-                {% endif %}
-            </form>
+            {% endfor %}
         </div>
     </div>
 
@@ -48,6 +43,31 @@
 
 {% block graph_js %}
 
-    <script src="{{ url_for('static', filename='js/live_price_graph.js') }}"></script>
+<script src="{{ url_for('static', filename='js/live_price_graph.js') }}"></script>
+
+<script>
+    const funcMap = {
+        'buy': buy,
+        'sell': sell,
+    };
+    for (let action in funcMap) {
+        {% for stock in stocks %}
+            $('#{{ stock }}_'+action).click(function(){
+                let amount = $('#{{ stock }}_amount')[0].value;
+                console.log(amount);
+                funcMap[action]('{{ session.username }}', '{{ stock }}', amount,
+                    function (msg) {
+                        alert(amount + ' x {{ stock }}: ' + msg);
+                        getPosition('{{ session.username }}', function(myJson){
+                            let balance = myJson['balance'];
+                            $('#userBalance').html(balance);
+                            updateBalance(balance);
+                        });
+                    }
+                );
+            });
+        {% endfor %}
+    }
+</script>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 const livePriceGraph = dc.compositeChart("#price_graph");
 const livePrices = {};
 const livePricesDataXF = crossfilter();
-const LPMaximumTicks = 200;
+const LPMaximumTicks = 300;
 const LPWidth = 600;
 const LPHeight = 400;
 
@@ -77,4 +77,4 @@ function updateLivePriceGraph(prices) {
 
 setInterval(function () {
     getPrices(updateLivePriceGraph);
-}, 1000);
+}, 2000);
