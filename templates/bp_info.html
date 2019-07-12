@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
- <div class="container">
+{#this is code for the Energy.html#}
+    <div class="container">
         <div class="row">
             <div class="col-3">
                 <h5>Energy Stocks</h5><br>
@@ -21,7 +22,8 @@
             <div class="col-9">
                 <h5>BP Energy</h5><br>
                 BP is one of the world's leading oil and gas companies, providing customers with fuel for transportation, energy for heat and light, lubricants and petrochemicals. It was founded in 1908 and since has grown with 78 countries of operation.
-            <p></p>
+            <div id="metals_BP_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
@@ -29,4 +31,9 @@
     </div>
 
 
+{% endblock %}
+
+{% block graph_js %}
+    <script>const METALS_NAME = 'BP'; const METALS_ID = '#metals_BP_graph';</script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}
