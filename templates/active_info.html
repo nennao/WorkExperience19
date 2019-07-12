@@ -6,15 +6,16 @@
             <div class="col-3">
                 <h5>Energy Stocks</h5><br>
 
-                <div class="list-group">
-                    <a href="{{ url_for('energy') }}"  class="list-group-item list-group-item-action">Duke Energy</a>
+              <div class="list-group">
+                    <a href="{{ url_for('energy') }}"  class="list-group-item list-group-item-action active">Duke Energy</a>
                     <a href="{{ url_for('bp_info') }}"  class="list-group-item list-group-item-action">BP</a>
-                    <a href="{{ url_for('active_info') }}" class="list-group-item list-group-item-action active">Active Energy Group</a>
+                    <a href="{{ url_for('active_info') }}" class="list-group-item list-group-item-action">Active Energy Group</a>
                     <a href="{{ url_for('enquest_info') }}" class="list-group-item list-group-item-action">Enquest</a>
                     <a href="{{ url_for('total_info') }}" class="list-group-item list-group-item-action">Total S.A.</a>
                     <a href="{{ url_for('exxon_info') }}" class="list-group-item list-group-item-action">Exxon Mobil Corporation</a>
-                    <a href="{{ url_for('shell_info') }}" class="list-group-item list-group-item-action" tabindex="-1"
-                       aria-disabled="true">Shell</a>
+                    <a href="{{ url_for('shell_info') }}" class="list-group-item list-group-item-action">Shell</a>
+                    <a href="{{ url_for('wtlof') }}" class="list-group-item list-group-item-action" tabindex="-1"
+                       aria-disabled="true">What to Look out for:</a>
                 </div>
             </div>
             <div class="col-9">
