@@ -20,6 +20,9 @@
             <div class="col-9">
                 <h5>Exxon Energy</h5><br>
                 Exxon Mobil Corporation is committed to being the world's premier petroleum and chemical manufacturing company.They make the products that drive modern transport, power cities, lubricate industry and provide petrochemical building blocks that lead to thousands of consumer goods. With business of 130 years they have established their name in 200 countries.
+            <p></p>
+            <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
+            <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
         </div>
     </div>

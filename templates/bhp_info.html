@@ -19,6 +19,9 @@
             <div class="col-9">
                 <h5>BHP (GBX)</h5><br>
                 BHP is a world-leading resources company. They extract and process minerals, oil and gas, with more than 62,000 employees and contractors, primarily in Australia and the Americas.
+            <p></p>
+            <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
+            <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
         </div>
     </div>

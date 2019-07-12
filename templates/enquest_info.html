@@ -20,7 +20,9 @@
             <div class="col-9">
                 <h5>Enquest Energy</h5><br>
                 With hydrocarbons expected to remain a key element of the global energy mix for many years, EnQuest is focused on enhancing hydrocarbon recovery and extending the useful lives of assets in a profitable and responsible manner. Our vision is to be the operator of choice for maturing and underdeveloped hydrocarbon assets.It is continously growing with 8 hubs in 2 countries.
-
+            <p></p>
+            <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
+            <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
         </div>
     </div>

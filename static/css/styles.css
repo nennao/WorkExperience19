@@ -108,3 +108,13 @@ main h6 {
   background-color: #244575;
   border-color: #244575;
 }
+
+.BuyButton, .list-group-item.active {
+  background-color: #244575;
+  border-color: #244575;
+}
+
+.SellButton, .list-group-item.active {
+  background-color: #244575;
+  border-color: #244575;
+}
