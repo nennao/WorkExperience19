@@ -24,7 +24,8 @@
 
                 <h5>Duke Energy</h5><br>
                 Duke Energy owns 58,200 megawatts of base-load and peak generation in the United States, which it distributes to its 7.2 million customers.Their commercial business owns and operates diverse power generation assets in North America, including a portfolio of renewable energy assets. They are transforming our customers’ experience, modernizing our energy grid, generating cleaner energy and expanding our natural gas infrastructure to create a smarter energy future for our customers.
-            <p></p>
+                <div id="energy_Duke_Energy_graph"></div>
+                <p></p>
             <a class="btn btn-link BuyButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Buy</a>
             <a class="btn btn-link SellButton" href="{% if session.username %}{{ url_for('stocks') }}{% else %}{{ url_for('signup') }}{% endif %}">Sell</a>
             </div>
@@ -33,4 +34,13 @@
     </div>
 
 
+{% endblock %}
+
+{% block graph_js %}
+    <script>
+        const DATA_FILE = "/static/data/energy_data.csv";
+        const COMPANY_NAME = 'Duke Energy (GBX)';
+        const GRAPH_ID = '#energy_duke_energy_graph';
+    </script>
+    <script src="{{ url_for('static', filename='js/metals_graphs.js') }}"></script>
 {% endblock %}
